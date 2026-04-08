@@ -1,0 +1,27 @@
+name: Deploy New Year Page
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Inject RSVP link from secret
+        run: |
+          sed -i "s|RSVP_LINK_PLACEHOLDER|${{ secrets.RSVP_URL }}|g" newyear2083/index.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
