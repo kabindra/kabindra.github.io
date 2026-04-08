@@ -1,11 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#f0c060"/>
-      <stop offset="100%" stop-color="#ffc85d"/>
-    </linearGradient>
-  </defs>
-  <rect width="120" height="120" rx="24" fill="#0a1628"/>
-  <circle cx="60" cy="60" r="36" fill="url(#g)"/>
-  <text x="60" y="74" font-family="Montserrat, sans-serif" font-size="52" font-weight="800" fill="#0a1628" text-anchor="middle">K</text>
+  <rect width="120" height="120" fill="#0a1628"/>
+  <polygon points="20,100 70,30 120,100" fill="#4a7c59"/>
+  <polygon points="70,30 85,50 55,50" fill="#ffffff"/>
 </svg>
