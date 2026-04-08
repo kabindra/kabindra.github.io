@@ -1,15 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <title>Kabindra Shrestha. Android Software Engineer.</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kabindra Shrestha — Lead Full Stack Developer</title>
+  <meta name="description" content="Kabindra Shrestha — Lead Full Stack Developer at Hub Group.">
+  <meta property="og:title" content="Kabindra Shrestha — Lead Full Stack Developer">
+  <meta property="og:description" content="Lead Full Stack Developer at Hub Group with a polished personal homepage.">
+  <meta property="og:image" content="/social-preview.svg">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kabindra Shrestha — Lead Full Stack Developer">
+  <meta name="twitter:description" content="Lead Full Stack Developer at Hub Group with a polished personal homepage.">
+  <meta name="twitter:image" content="/social-preview.svg">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;600;700;800;900&family=Noto+Serif+Devanagari:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap"
+    rel="stylesheet">
   <style>
-    h1,p {text-align:center;}
+    :root {
+      color-scheme: dark;
+      font-family: 'Montserrat', sans-serif;
+      background: #0a0a0a;
+      color: #f4f4f4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+
+    body {
+      background: #0a0a0a;
+      overflow-x: hidden;
+    }
+
+    .page {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sky {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg,
+          #0a1628 0%,
+          #0d2140 12%,
+          #1a3a6e 28%,
+          #2352a0 44%,
+          #4a7ec8 60%,
+          #7baad8 72%,
+          #b8d4ec 82%,
+          #deeaf5 90%,
+          #eef5fa 100%);
+      z-index: -4;
+    }
+
+    .stars {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      pointer-events: none;
+    }
+
+    .horizon-glow {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 44%;
+      height: 200px;
+      background: radial-gradient(ellipse 80% 100% at 50% 100%, rgba(255, 240, 200, 0.27) 0%, transparent 72%);
+      z-index: -2;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(180deg,
+          rgba(5, 10, 25, 0.45) 0%,
+          rgba(5, 10, 25, 0.15) 42%,
+          rgba(5, 10, 25, 0.05) 55%,
+          rgba(5, 10, 25, 0.5) 75%,
+          rgba(5, 10, 25, 0.95) 100%);
+      z-index: -1;
+    }
+
+    .content {
+      position: relative;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 72px 24px 120px;
+      display: grid;
+      gap: 48px;
+    }
+
+    .hero {
+      padding: 48px 36px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      background: rgba(3, 8, 25, 0.68);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(3rem, 5vw, 5rem);
+      letter-spacing: -0.06em;
+      line-height: 0.96;
+      color: #fff;
+    }
+
+    .hero p.lead {
+      margin: 0 0 24px;
+      max-width: 720px;
+      font-size: 1.12rem;
+      color: #e7e7e7;
+      line-height: 1.8;
+    }
+
+    .hero .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(240, 192, 96, 0.6);
+      background: rgba(255, 255, 255, 0.08);
+      color: #f0c060;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 24px;
+    }
+
+    .timeline-card {
+      position: relative;
+      padding: 28px 32px;
+      border-radius: 24px;
+      background: rgba(8, 12, 24, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+      overflow: hidden;
+    }
+
+    .timeline-card::before {
+      content: '';
+      position: absolute;
+      left: 32px;
+      top: 24px;
+      width: 4px;
+      height: calc(100% - 48px);
+      background: linear-gradient(180deg, #f0c060, rgba(240, 192, 96, 0.2));
+      border-radius: 999px;
+      opacity: 0.95;
+    }
+
+    .timeline-card .marker {
+      position: absolute;
+      left: 22px;
+      top: 22px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #f0c060;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .timeline-card h2 {
+      margin: 0 0 12px;
+      font-size: 1.75rem;
+      letter-spacing: -0.03em;
+      color: #fff;
+    }
+
+    .timeline-card p {
+      margin: 0;
+      color: rgba(242, 242, 242, 0.88);
+      line-height: 1.8;
+    }
+
+    .timeline-card .meta {
+      display: block;
+      margin: 12px 0 18px;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.72);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      color: #f0c060;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      max-width: 720px;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.7;
+    }
+
+    .mountain-svg {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: -5;
+      pointer-events: none;
+    }
+
+    @media (max-width: 800px) {
+
+      .hero,
+      .timeline-card {
+        padding: 24px;
+      }
+
+      .timeline-card::before {
+        left: 20px;
+      }
+
+      .timeline-card .marker {
+        left: 12px;
+      }
+    }
   </style>
 </head>
+
 <body>
+  <div class="page">
+    <div class="sky"></div>
+    <div class="stars" id="stars"></div>
+    <div class="horizon-glow"></div>
+    <div class="overlay"></div>
 
-<h1>Kabindra Shrestha</h1>
-<p>Android Software Engineer</p>
+    <main class="content">
+      <section class="hero">
+        <span class="badge">Hub Group · Lead Full Stack Developer</span>
+        <h1>Kabindra Shrestha</h1>
+        <p class="lead">Lead Full Stack Developer at Hub Group, building polished applications and powerful product
+          experiences across web and mobile.</p>
+      </section>
+    </main>
 
+    <svg class="mountain-svg" viewBox="0 0 560 400" preserveAspectRatio="xMidYMax meet"
+      xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="snowGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#ffffff" />
+          <stop offset="40%" stop-color="#e8eef5" />
+          <stop offset="100%" stop-color="#c5d5e8" />
+        </linearGradient>
+        <linearGradient id="rockGrad" x1="0" y1="0" x2="0.3" y2="1">
+          <stop offset="0%" stop-color="#5a6a7a" />
+          <stop offset="50%" stop-color="#3a4555" />
+          <stop offset="100%" stop-color="#1e2530" />
+        </linearGradient>
+        <linearGradient id="rockDark" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#3a4555" />
+          <stop offset="100%" stop-color="#1a1e28" />
+        </linearGradient>
+        <linearGradient id="ridge1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#7a8fa8" />
+          <stop offset="100%" stop-color="#4a5a70" />
+        </linearGradient>
+        <linearGradient id="ridge2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#5a6e88" />
+          <stop offset="100%" stop-color="#2a3545" />
+        </linearGradient>
+        <linearGradient id="glacier" x1="0" y1="0" x2="0.2" y2="1">
+          <stop offset="0%" stop-color="#d0dff0" />
+          <stop offset="100%" stop-color="#8aabcc" />
+        </linearGradient>
+      </defs>
+      <path d="M320 260 L380 170 L420 200 L460 140 L500 180 L540 155 L580 190 L580 400 L320 400Z" fill="url(#ridge2)"
+        opacity="0.6" />
+      <path d="M-20 310 L30 230 L70 260 L110 195 L155 235 L190 200 L230 240 L260 220 L300 260 L300 400 L-20 400Z"
+        fill="url(#ridge1)" opacity="0.55" />
+      <path d="M-20 340 L20 280 L55 300 L90 255 L125 275 L160 245 L195 270 L220 255 L250 280 L270 400 L-20 400Z"
+        fill="#3a4a60" opacity="0.7" />
+      <path d="M290 400 L310 270 L345 295 L370 255 L405 285 L435 248 L468 272 L490 255 L520 280 L560 265 L560 400Z"
+        fill="#303a50" opacity="0.7" />
+      <path
+        d="M200 400 L240 290 L265 270 L280 240 L290 200 L300 168 L310 142 L318 118 L320 100 L322 118 L326 145 L332 168 L340 200 L350 235 L360 260 L375 285 L390 310 L420 360 L440 400Z"
+        fill="url(#rockGrad)" />
+      <path
+        d="M240 290 L265 270 L280 240 L290 210 L300 182 L306 158 L312 132 L316 110 L319 96 L316 118 L310 145 L300 175 L292 205 L282 235 L268 265 L252 282 L238 292Z"
+        fill="url(#snowGrad)" opacity="0.9" />
+      <path
+        d="M320 100 L322 118 L326 145 L332 168 L340 200 L350 235 L365 268 L380 295 L400 330 L440 400 L200 400 L200 400Z"
+        fill="url(#rockDark)" opacity="0.85" />
+      <path
+        d="M320 100 L322 120 L325 145 L329 165 L334 192 L340 218 L346 240 L354 260 L362 278 L370 292 L362 278 L353 258 L344 235 L337 210 L330 185 L325 160 L322 138 L320 115Z"
+        fill="url(#snowGrad)" opacity="0.75" />
+      <path d="M315 105 L318 92 L320 80 L322 92 L325 108 L322 102 L320 94 L318 102Z" fill="white" opacity="0.95" />
+      <path d="M265 268 L278 245 L288 218 L294 240 L288 265 L278 282Z" fill="url(#glacier)" opacity="0.6" />
+      <path d="M330 188 L338 215 L344 240 L336 245 L328 218 L322 192Z" fill="url(#glacier)" opacity="0.5" />
+      <path d="M280 240 L290 205 L298 175 L302 155 L298 178 L290 208 L280 242Z" fill="rgba(100,140,190,0.3)" />
+      <path d="M320 82 Q340 72 370 68 Q400 64 440 67 Q400 70 370 76 Q345 80 325 86Z" fill="rgba(255,255,255,0.85)"
+        opacity="0.7" />
+      <path d="M320 86 Q348 78 385 75 Q420 72 460 74 Q420 78 384 82 Q348 86 322 90Z" fill="rgba(255,255,255,0.45)"
+        opacity="0.4" />
+      <path
+        d="M160 400 L190 320 L205 295 L215 268 L222 248 L230 235 L238 248 L244 270 L252 295 L262 318 L272 350 L280 400Z"
+        fill="#3a4858" opacity="0.9" />
+      <path d="M222 248 L228 235 L234 248 L230 260 L225 250Z" fill="url(#snowGrad)" opacity="0.7" />
+      <path d="M360 400 L375 330 L385 305 L395 280 L405 258 L414 240 L422 258 L428 278 L435 305 L445 330 L460 400Z"
+        fill="#323e50" opacity="0.9" />
+      <path d="M414 240 L420 228 L426 242 L422 256 L416 244Z" fill="url(#snowGrad)" opacity="0.65" />
+      <path d="M0 390 Q140 370 280 375 Q420 380 560 368 L560 400 L0 400Z" fill="#1a2030" />
+      <ellipse cx="100" cy="390" rx="40" ry="8" fill="white" opacity="0.12" />
+      <ellipse cx="430" cy="385" rx="35" ry="7" fill="white" opacity="0.1" />
+      <rect x="0" y="300" width="560" height="80" fill="url(#ridge1)" opacity="0.06" />
+    </svg>
+  </div>
+
+  <script>
+    const starsEl = document.getElementById('stars');
+    for (let i = 0; i < 90; i++) {
+      const star = document.createElement('div');
+      star.style.cssText = `
+        position:absolute;
+        width:${Math.random() * 2 + 0.5}px;
+        height:${Math.random() * 2 + 0.5}px;
+        border-radius:50%;
+        background:white;
+        opacity:${Math.random() * 0.6 + 0.3};
+        left:${Math.random() * 100}%;
+        top:${Math.random() * 55}%;
+        filter: blur(${Math.random() * 0.8}px);
+      `;
+      starsEl.appendChild(star);
+    }
+  </script>
 </body>
+
 </html>
